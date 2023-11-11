@@ -19,13 +19,13 @@ convertnet <- function(res, fdr.thr = 0.05, c.size = 10){
   
   sig_res = res[res$FDR_Bg1g2 < fdr.thr | res$FDR_Bg2g1 < fdr.thr,]
   
-  message("filtering < " ,fdrth,"...")
+  message("filtering < " ,fdr.thr,"...")
   if (nrow(sig_res)==0){
     stop("There is no network.")
   }
   
-  sig_res$fdrth.g1g2 = sapply(1:length(sig_res$FDR_Bg1g2), function(x){ if (sig_res$FDR_Bg1g2[x]<fdrth){1} else{0} })
-  sig_res$fdrth.g2g1 = sapply(1:length(sig_res$FDR_Bg2g1), function(x){ if (sig_res$FDR_Bg2g1[x]<fdrth){1} else{0} })
+  sig_res$fdrth.g1g2 = sapply(1:length(sig_res$FDR_Bg1g2), function(x){ if (sig_res$FDR_Bg1g2[x]<fdr.thr){1} else{0} })
+  sig_res$fdrth.g2g1 = sapply(1:length(sig_res$FDR_Bg2g1), function(x){ if (sig_res$FDR_Bg2g1[x]<fdr.thr){1} else{0} })
   
   temp1=sig_res[sig_res$fdrth.g1g2 == 1,c("g1","g2","Bg1g2")]
   temp2=sig_res[sig_res$fdrth.g2g1 == 1,c("g2","g1","Bg2g1")]
