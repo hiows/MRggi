@@ -12,8 +12,8 @@ library(MRggi)
 # Example
 1. data load
 ```
-y.chr1 = fread("chr1_Gene.txt") %>% as.matrix()  # SNP genotype
-X.chr1 = fread("chr1_SNP.txt") %>% as.matrix()  # Gene expression
+data("X.chr1")  # SNP genotype
+data("y.chr1")  # Gene expression
 ```
 2. Fine mapping
 ```
