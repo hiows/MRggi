@@ -7,8 +7,6 @@ MR-GGI can accurately infer gene-gene interactions using Mendelian randomization
 ```
 #remotes::install_github("hiows/MRggi")  # install MRggi
 library(MRggi)
-library(dplyr)
-library(data.table)
 ```
 
 # Example
